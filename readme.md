@@ -20,5 +20,8 @@ Features:
 Requirements:
 
 -Python 3.10+
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 88c0d10 (fixed Readme file)
