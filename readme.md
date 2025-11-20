@@ -1,7 +1,7 @@
 My personal project on boot.dev: Basic delivery calculator implemented for real life use on my own company.
 
 
-This command-line tool written on python helps to calculate:
+    This command-line tool written on python helps to calculate:
 
 -Delivery cost per trip
 -Fuel cost
@@ -10,18 +10,15 @@ This command-line tool written on python helps to calculate:
 -Weekly cost
 
 
-Features:
+    Features:
 
 -Ask user step-by-step questions
 -Option to calculate the weekly cost
 -Cli interface
 
 
-Requirements:
+    Requirements:
 
--Python 3.10+
-<<<<<<< HEAD
+-Python 3.10+       
 
 
-=======
->>>>>>> 88c0d10 (fixed Readme file)
