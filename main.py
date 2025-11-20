@@ -1,21 +1,33 @@
-from calculator import *
+from calculator import delivery_cost, delivery_cost_weekly
+from greet import greet
 
+def ask(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            return value
+        except ValueError:
+            print("Erro! Digite um número válido.")
 
 def main():
-    distancia_km = 100
-    valor_diesel = 5.9
-    km_por_litro_diesel = 9.2
-    quant_pedagio = 1
-    valor_pedagio = 6.3
-    mao_de_obra = 15 #salario / dias trabalhados = mao de obra por dia / quantidade de entregas dia
-    manutencao_km = 0.40
-    deprecriacao_km = 0.50 #valor compra - valor de venda / kilometragem
-    frequencia_semana = 3
-
-    cost = delivery_cost(distancia_km, valor_diesel, km_por_litro_diesel, quant_pedagio, valor_pedagio, mao_de_obra, manutencao_km, deprecriacao_km)
-    cost_week = delivery_cost_weekly(frequencia_semana, cost)
-
-
+    greet()
+    distance_km = ask("Distancia em km's -> ")
+    diesel_price = ask("Valor do diesel -> ")
+    diesel_per_liter = ask("Quantos km/l o veiculo faz? -> ")
+    toll_count = ask("Quantos pedágios no trajeto? -> ")
+    toll_price = ask("Qual o valor do pedágio? -> ")
+    labor_cost = 15 #salario / dias trabalhados = mao de obra por dia / quantidade de entregas dia = labor cost
+    maintenence_cost_km = 0.40
+    depreciation_cost_km = 0.50 #valor compra - valor de venda / kilometragem na venda do veiculo
+    
+    cost = delivery_cost(distance_km, diesel_price, diesel_per_liter, toll_count, toll_price, labor_cost, maintenence_cost_km, depreciation_cost_km)
+    answer = input("Gostaria de calcular o custo de entrega semanal? (s/n)? ").strip().lower()
+    if answer == "s":
+        frequency = ask("Quantas coletas/entregas por semana no cliente? -> ")
+        time = ask("Quantos minutos o motorista aguarda/fica no cliente? -> ")
+        cost_week = delivery_cost_weekly(frequency, cost, time)
+    else:
+        print("Ok, programa encerrado.")
 
 
 

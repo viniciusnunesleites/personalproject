@@ -17,15 +17,18 @@ def delivery_cost(distance_km,
     total_cost = fuel_cost + labor_cost + maintenence_cost + depreciation_cost
 
     if not toll_count:
-        print(f"The delivery cost is: R${total_cost} considering a distance of: {distance_km} km.\nO custo do frete é: R${total_cost} considerando a distancia de: {distance_km} km")
+        print(f"O custo de entrega é: R${total_cost} considerando a distância de: {distance_km} km.")
         return total_cost
     #tool cost
     toll_cost = toll_count * toll_price
     #total cost
-    print(f"The delivery cost is: R${total_cost + toll_cost} considering a distance of: {distance_km} km.\nO custo do frete é: R${total_cost + toll_cost} considerando a distancia de: {distance_km} km")
+    print(f"O custo de entrega é: R${total_cost + toll_cost} considerando a distância de: {distance_km} km.")
     return total_cost + toll_cost
     
-def delivery_cost_weekly(frequency, delivery_cost):
-    weekly_cost = delivery_cost * frequency
-    print(f"weekly cost is: R${weekly_cost}\ncusto mensal é: R${weekly_cost}")
+
+def delivery_cost_weekly(frequency, time, delivery_cost):
+    time_cost = time / 60 * 18
+    cost_delivery = delivery_cost + time_cost
+    weekly_cost = cost_delivery * frequency
+    print(f"Custo semanal: R${weekly_cost}")
     return weekly_cost
